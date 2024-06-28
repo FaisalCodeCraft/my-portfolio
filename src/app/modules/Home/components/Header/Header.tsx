@@ -42,7 +42,7 @@ const Header = () => {
               fontSize={{ md: "2.3em" }}
               fontWeight={{ md: 700, sm: 600, xs: 600 }}
             >
-              HEY I'M SHAH
+              HEY I&#39;M SHAH
             </Typography>
             <Typography
               component={"h1"}
