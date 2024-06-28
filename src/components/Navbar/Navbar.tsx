@@ -1,11 +1,6 @@
 "use client";
 import { COLOR } from "@/constants/color";
-import {
-  AccountCircleOutlined,
-  LoginOutlined,
-  PersonAddOutlined,
-} from "@mui/icons-material";
-import { Box, Divider, Typography } from "@mui/material";
+import { Box,  Typography } from "@mui/material";
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Drawer from "@mui/material/Drawer";
@@ -18,6 +13,7 @@ import styles from "./navbar.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 // import Image from "next/image";
+import hamburger from "../../../public/hamburger.svg"
 
 const Navbar = () => {
   // console.log(cartLenght)
@@ -55,10 +51,10 @@ const Navbar = () => {
           <Box
             sx={{
               "& a": {
-                color: pathname === "/" ? "red" : "black",
-                textDecoration: pathname === "/" ? "underline" : "none",
+                color: pathname === "/" ? COLOR.main.red : "black",
+                textDecoration: "none",
                 "&:hover": {
-                  color: "red",
+                  color: COLOR.main.red,
                 },
               },
             }}
@@ -70,10 +66,10 @@ const Navbar = () => {
           <Box
             sx={{
               "& a": {
-                color: pathname === "/About" ? "red" : "black",
+                color: pathname === "/About" ? COLOR.main.red : "black",
                 textDecoration: "none",
                 "&:hover": {
-                  color: "red",
+                  color: COLOR.main.red,
                 },
               },
             }}
@@ -85,60 +81,60 @@ const Navbar = () => {
           <Box
             sx={{
               "& a": {
-                color: pathname === "/Projects" ? "red" : "black",
+                color: pathname === "/Expertise" ? COLOR.main.red : "black",
                 textDecoration: "none",
                 "&:hover": {
-                  color: "red",
+                  color: COLOR.main.red,
                 },
               },
             }}
           >
-            <Link href={"/Projects"}> Latest&nbsp;Profile </Link>
+            <Link href={"/Expertise"}> Expertise </Link>
           </Box>
         </ListItem>
         <ListItem>
           <Box
             sx={{
               "& a": {
-                color: pathname === "/Services" ? "red" : "black",
+                color: pathname === "/Projects" ? COLOR.main.red : "black",
                 textDecoration: "none",
                 "&:hover": {
-                  color: "red",
+                  color: COLOR.main.red,
                 },
               },
             }}
           >
-            <Link href={"/Services"}> Featured&nbsp;Profile </Link>
+            <Link href={"/Projects"}> Projects </Link>
           </Box>
         </ListItem>
         <ListItem>
           <Box
             sx={{
               "& a": {
-                color: pathname === "/Contact" ? "red" : "black",
+                color: pathname === "/Services" ? COLOR.main.red : "black",
                 textDecoration: "none",
                 "&:hover": {
-                  color: "red",
+                  color: COLOR.main.red,
                 },
               },
             }}
           >
-            <Link href={"/Contact"}> Success&nbsp;Stories </Link>
+            <Link href={"/Services"}> Services </Link>
           </Box>
         </ListItem>
         <ListItem>
           <Box
             sx={{
               "& a": {
-                color: pathname === "/Donate" ? "red" : "black",
+                color: pathname === "/Contact" ? COLOR.main.red : "black ",
                 textDecoration: "none",
                 "&:hover": {
-                  color: "red",
+                  color: COLOR.main.red,
                 },
               },
             }}
           >
-            <Link href={"/Donate"}> Donate </Link>
+            <Link href={"/Contact"}> Contact</Link>
           </Box>
         </ListItem>
       </List>
@@ -146,20 +142,21 @@ const Navbar = () => {
   );
 
   return (
-    <Box position={"relative"}>
+    <Box position={{md:"absolute"}} width={"100%"}>
       <AppBar
         component="nav"
-        style={{
+        sx={{
           boxShadow: "none",
           transition: "all .3s ease",
-          backgroundColor: color ? "white" : "black",
+          backgroundColor: {md:color ? "white" : "transparent",xs:"white"},
         }}
       >
         <Toolbar
-          style={{
+          sx={{
             display: "flex",
             justifyContent: "space-between",
             boxShadow: color ? "1px 1px 8px gray" : "none",
+            px: { md: 10 },
           }}
         >
           <IconButton
@@ -167,7 +164,7 @@ const Navbar = () => {
             edge="start"
             sx={{
               display: { sm: "flex", md: "none" },
-              color: color ? "black" : "white",
+              color: {md:color ? "black" : "white",xs:"black"},
             }}
             onClick={handleDrawerToggle}
           >
@@ -178,10 +175,10 @@ const Navbar = () => {
               <Box
                 sx={{
                   "& a": {
-                    color: color ? "black" : "white",
+                    color: {md:color ? "black" : "white",xs:"black"},
                     textDecoration: "none",
                     "&:hover": {
-                      color: "red",
+                      color: COLOR.main.red,
                     },
                   },
                   fontSize: "1.5em",
@@ -194,17 +191,20 @@ const Navbar = () => {
           </List>
           <List
             disablePadding
-            sx={{ display: { md: "flex", sm: "none", xs: "none" } }}
+            sx={{
+              display: { md: "flex", sm: "none", xs: "none" },
+              justifyContent: "space-evenly",
+            }}
           >
-            <ListItem disableGutters>
+            <ListItem>
               <Box
                 className={styles.link}
                 sx={{
                   "& a": {
-                    color: pathname === "/" ? "red" : color ? "black" : "white",
+                    color: color ? "black" : "white",
                     textDecoration: "none",
                     "&:hover": {
-                      color: "red",
+                      color: COLOR.main.red,
                     },
                   },
                 }}
@@ -212,16 +212,20 @@ const Navbar = () => {
                 <Link href={"/"}> Home </Link>
               </Box>
             </ListItem>
-            <ListItem>
+            <ListItem disableGutters>
               <Box
-              className={styles.link}
+                className={styles.link}
                 sx={{
                   "& a": {
                     color:
-                      pathname === "/About" ? "red" : color ? "black" : "white",
+                      pathname === "/About"
+                        ? COLOR.main.red
+                        : color
+                        ? "black"
+                        : "white",
                     textDecoration: "none",
                     "&:hover": {
-                      color: "red",
+                      color: COLOR.main.red,
                     },
                   },
                 }}
@@ -231,18 +235,39 @@ const Navbar = () => {
             </ListItem>
             <ListItem>
               <Box
-              className={styles.link}
+                className={styles.link}
                 sx={{
                   "& a": {
                     color:
-                      pathname === "/Projects"
-                        ? "red"
+                      pathname === "/Expertise"
+                        ? COLOR.main.red
                         : color
                         ? "black"
                         : "white",
                     textDecoration: "none",
                     "&:hover": {
-                      color: "red",
+                      color: COLOR.main.red,
+                    },
+                  },
+                }}
+              >
+                <Link href={"/Expertise"}> Expertise </Link>
+              </Box>
+            </ListItem>
+            <ListItem>
+              <Box
+                className={styles.link}
+                sx={{
+                  "& a": {
+                    color:
+                      pathname === "/Projects"
+                        ? COLOR.main.red
+                        : color
+                        ? "black"
+                        : "white",
+                    textDecoration: "none",
+                    "&:hover": {
+                      color: COLOR.main.red,
                     },
                   },
                 }}
@@ -252,18 +277,18 @@ const Navbar = () => {
             </ListItem>
             <ListItem>
               <Box
-              className={styles.link}
+                className={styles.link}
                 sx={{
                   "& a": {
                     color:
                       pathname === "/Services"
-                        ? "red"
+                        ? COLOR.main.red
                         : color
                         ? "black"
                         : "white",
                     textDecoration: "none",
                     "&:hover": {
-                      color: "red",
+                      color: COLOR.main.red,
                     },
                   },
                 }}
@@ -273,18 +298,18 @@ const Navbar = () => {
             </ListItem>
             <ListItem>
               <Box
-              className={styles.link}
+                className={styles.link}
                 sx={{
                   "& a": {
                     color:
                       pathname === "/Contact"
-                        ? "red"
+                        ? COLOR.main.red
                         : color
                         ? "black"
                         : "white",
-                    textDecoration:"none",
+                    textDecoration: "none",
                     "&:hover": {
-                      color: "red",
+                      color: COLOR.main.red,
                     },
                   },
                 }}
@@ -292,94 +317,14 @@ const Navbar = () => {
                 <Link href={"/Contact"}> Contact</Link>
               </Box>
             </ListItem>
-            {/* <ListItem disableGutters>
-              <Box
-                sx={{
-                  "& a": {
-                    color:
-                      pathname === "/Donate"
-                        ? "red"
-                        : color
-                        ? "black"
-                        : "white",
-                    textDecoration:
-                      pathname === "/Donate" ? "underline" : "none",
-                    "&:hover": {
-                      color: "red",
-                      textDecoration: "underline",
-                    },
-                  },
-                }}
-              >
-                <Link href={"/Donate"}> Donate </Link>
-              </Box>
-            </ListItem> */}
           </List>
 
-          <List className={styles.dropdown}>
+          <Box >
             <Typography>
-              <AccountCircleOutlined
-                sx={{ color: color ? "black" : "white" }}
-              />
+              <img   src={hamburger} alt="hamburger" />
             </Typography>
-            <Box className={styles.dropdownContent}>
-              <Link href={"/Login"}>
-                <ListItem sx={{ py: 1 }}>
-                  <Box
-                    border={`1.5px solid ${COLOR.main.cyan}`}
-                    borderRadius={"50%"}
-                    width={"48px"}
-                    height={"48px"}
-                    display={"flex"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
-                    mr={1}
-                    p={2}
-                  >
-                    <LoginOutlined
-                      fontSize="large"
-                      sx={{
-                        bgcolor: COLOR.main.cyan,
-                        p: 0.7,
-                        width: "35px",
-                        height: "35px",
-                        borderRadius: "50%",
-                      }}
-                    />
-                  </Box>
-                  LOGIN
-                </ListItem>
-              </Link>
-              <Divider />
-              <Link href={"/Register"}>
-                <ListItem sx={{ py: 1 }}>
-                  <Box
-                    border={`1.5px solid ${COLOR.main.cyan}`}
-                    borderRadius={"50%"}
-                    width={"48px"}
-                    height={"48px"}
-                    display={"flex"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
-                    mr={1}
-                    p={2}
-                  >
-                    <PersonAddOutlined
-                      fontSize="large"
-                      sx={{
-                        bgcolor: COLOR.main.cyan,
-                        p: 0.7,
-                        width: "35px",
-                        height: "35px",
-                        borderRadius: "50%",
-                      }}
-                    />
-                  </Box>
-                  REGISTER
-                </ListItem>
-              </Link>
-            </Box>
-          </List>
+           
+          </Box>
         </Toolbar>
       </AppBar>
       <nav>

@@ -1,10 +1,10 @@
 export const COLOR={
     main:{
-        electricblue:"#7df9ff",
-        cyan:"#00ffff"
+        red:"#ea4343",
+        lightRed:"#f14c4c"
     },
     gray:{
-        dark:"#5e627f",
+        dark:"rgb(57, 55, 55)",
         light:"#e9ecef"
     }
 }

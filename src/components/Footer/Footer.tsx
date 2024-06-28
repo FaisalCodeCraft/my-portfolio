@@ -21,7 +21,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <Box position={"relative"} mt={5} px={3} pb={3}>
+    <Box position={"relative"} mt={5} px={2} pb={3}>
       <Box position={"absolute"} width={"50vh"} bottom={0}>
         {/* <Image
           fill

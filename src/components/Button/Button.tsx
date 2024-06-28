@@ -1,10 +1,11 @@
 import { COLOR } from "@/constants/color";
+import { ChevronRight } from "@mui/icons-material";
 import { Box, Button } from "@mui/material";
 import React from "react";
 
 const ButtonComp = (props: any) => {
   const boxStyle = {
-    border: `1px solid ${COLOR?.main.cyan}`,
+    border: `1px solid ${COLOR?.main.red}`,
     margin: "auto",
     textAlign: "center",
     borderRadius: "5px",
@@ -13,12 +14,15 @@ const ButtonComp = (props: any) => {
     position: "relative",
     transition: "1s",
     "&:hover": {
-      border: `1px solid ${COLOR?.main.electricblue}`,
+      border: `1px solid ${COLOR?.main.lightRed}`,
     },
   };
   return (
     <Box sx={boxStyle}>
-      <Button sx={btnSyle}>{props.title}</Button>
+ 
+  <Button sx={btnSyle} endIcon={<ChevronRight sx={{bgcolor:"white", color: COLOR.main.red,borderRadius:"3px",}} />}>
+        {props.title}
+      </Button>
     </Box>
   );
 };
@@ -26,12 +30,13 @@ const ButtonComp = (props: any) => {
 export default ButtonComp;
 
 const btnSyle = {
-  backgroundColor: COLOR.main.electricblue,
-  color: COLOR.gray.dark,
+  backgroundColor: COLOR.main.red,
+  color: "white",
   width: "100%",
   padding: "5px",
   transition: ".3s",
   "&:hover": {
-    backgroundColor: COLOR.main.cyan,
+    backgroundColor: "none",
+    color:COLOR.main.lightRed
   },
 };
