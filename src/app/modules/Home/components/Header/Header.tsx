@@ -42,7 +42,7 @@ const Header = () => {
               fontSize={{ md: "2.3em" }}
               fontWeight={{ md: 700, sm: 600, xs: 600 }}
             >
-              HEY I'M SHAH{" "}
+              HEY I'M SHAH
             </Typography>
             <Typography
               component={"h1"}
@@ -62,7 +62,7 @@ const Header = () => {
               borderLeft={`3px solid ${COLOR.main.red}`}
             >
               Collaboration allows us to accomplish far more than any individual
-              could achieve on their own.{" "}
+              could achieve on their own.
             </Typography>
           </Box>
           <Box width={"220px"} mt={1}>
