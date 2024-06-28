@@ -84,6 +84,7 @@ const Header = () => {
                 borderRadius: "50%",
                 border: `2px solid ${COLOR.main.red}`,
               }}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={myPic}
               alt="Shah Faisal"
             />
