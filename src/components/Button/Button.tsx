@@ -19,8 +19,18 @@ const ButtonComp = (props: any) => {
   };
   return (
     <Box sx={boxStyle}>
- 
-  <Button sx={btnSyle} endIcon={<ChevronRight sx={{bgcolor:"white", color: COLOR.main.red,borderRadius:"3px",}} />}>
+      <Button
+        sx={btnSyle}
+        endIcon={
+          <ChevronRight
+            sx={{
+              bgcolor: "white",
+              color: COLOR.main.red,
+              borderRadius: "3px",
+            }}
+          />
+        }
+      >
         {props.title}
       </Button>
     </Box>
@@ -37,6 +47,6 @@ const btnSyle = {
   transition: ".3s",
   "&:hover": {
     backgroundColor: "none",
-    color:COLOR.main.lightRed
+    color: COLOR.main.lightRed,
   },
 };

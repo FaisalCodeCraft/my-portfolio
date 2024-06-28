@@ -14,6 +14,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 // import Image from "next/image";
 import hamburger from "../../../public/hamburger.svg"
+import Image from "next/image";
 
 const Navbar = () => {
   // console.log(cartLenght)
@@ -321,7 +322,7 @@ const Navbar = () => {
 
           <Box >
             <Typography>
-              <img   src={hamburger} alt="hamburger" />
+              <Image  width={30} height={30} src={hamburger} alt="hamburger" />
             </Typography>
            
           </Box>
